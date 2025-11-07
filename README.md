@@ -1,5 +1,4 @@
-Here's Unit test collection for heresme-sv
- for upload them with doc. how to run test.
+Here's Integration test for heresme-sv/Java.
 
 == prev. Readme
 
