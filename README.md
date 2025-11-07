@@ -106,9 +106,38 @@ Coverage:    89.96%
 
 ## Integration Tests（結合テスト）
 
+### Java結合テスト（IT-J001～J012）
+
+Java EncDecモジュールの結合テストが利用可能です。
+
+**対象**: `util/EncDec.class` - Java暗号化/復号化ユーティリティ
+**テストケース**: 全12ケース
+**所要時間**: 約5～10分
+
+#### 実行方法
+
+```bash
+# 全Java結合テスト実行
+bash tests/integration/java/run-all-java-tests.sh
+
+# 基本テストのみ（IT-J001～J009）
+bash tests/integration/java/java-basic.test.sh
+
+# Node.js連携テスト（IT-J010）
+npx jest tests/integration/java/java-encdec.integration.test.js --verbose
+
+# パフォーマンステスト（IT-J011～J012）
+bash tests/integration/java/java-performance.test.sh
+```
+
+**詳細**: [`tests/integration/java/README.md`](tests/integration/java/README.md)
+**仕様書**: [`ref/Java結合テスト実施計画書.md`](ref/Java結合テスト実施計画書.md)
+
+### Node.js結合テスト
+
 以下の機能は結合テスト環境での検証を推奨します：
 
-### 対象モジュール
+#### 対象モジュール
 
 1. **login-auth.js** - パスワード認証処理
    - Java EncDecによる暗号化/復号化
@@ -118,14 +147,14 @@ Coverage:    89.96%
    - AWS S3連携
    - ファイルアップロード/削除
 
-### 結合テスト環境の要件
+#### 結合テスト環境の要件
 
 - Java実行環境（EncDecクラス）
 - PostgreSQL 14.12
 - AWS S3 アクセス（または LocalStack）
 - AWS SSM アクセス（または環境変数）
 
-### 実行方法
+#### 実行方法
 
 ```bash
 # 結合テスト実行（将来的に整備予定）
@@ -135,7 +164,7 @@ make integration-test
 make test-all
 ```
 
-**注意**: 結合テストは現在整備中です。
+**注意**: Node.js側結合テストは現在整備中です。
 
 ## テストカバレッジ
 
