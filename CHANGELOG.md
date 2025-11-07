@@ -47,7 +47,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 **残存する未カバー分岐**:
 - db-util.js: Lines 16, 35-49, 67-68, 208-209（AWS環境依存、実環境でのみ発生）
-- telework.js: Lines 250, 255, 264, 269（統合テスト推奨、Phase 1.5で調査済み）
+- telework.js: Lines 250, 255, 264, 269（結合テスト推奨、Phase 1.5で調査済み）
 - hm-util.js: Line 161（**到達不可能コード - Dead Code**）
   - else分岐（`cidr >= 32`）は論理的に実行されることがない
   - Line 147で`range.indexOf('*') >= 0`の条件により、*が1つ以上ある場合のみこのブロックに入る
@@ -58,9 +58,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 **Phase 2の成功要因**:
 - lcov.infoファイルから正確な未カバー分岐（BRDA）を特定
 - 各モジュールの未カバー分岐を優先度順に改善
-- 単体テストでカバー可能な分岐のみに注力（AWS環境依存や統合テスト推奨箇所は除外）
+- 単体テストでカバー可能な分岐のみに注力（AWS環境依存や結合テスト推奨箇所は除外）
 
-**統合テスト・総合テストへの申し送り**:
+**結合テスト・総合テストへの申し送り**:
 - **INTEGRATION_TEST_HANDOVER.md** - 単体テストでカバーできなかった項目の申し送り文書を作成
   - telework.js Lines 251, 257-279（旧バージョン対応コード）
   - db-util.js Lines 35-49, 67-68, 208-209（AWS環境依存コード）
@@ -68,11 +68,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - 到達不可能コード（hm-util.js Line 161）の説明
 
 **最終報告書作成**:
-- **TEST_REPORT_PHASE1_2.md** - Phase 1 & 1.5 & 2の統合テスト報告書を作成
+- **TEST_REPORT_PHASE1_2.md** - Phase 1 & 1.5 & 2の結合テスト報告書を作成
   - プロジェクト全体成果のサマリー
   - モジュール別テスト結果一覧（C0/C1カバレッジ、テスト件数、OK/FAIL数、検出BUG数）
   - 検出されたバグ5件の詳細
-  - 残存課題と統合テストへの申し送り
+  - 残存課題と結合テストへの申し送り
   - ベストプラクティスと学んだ教訓
 
 #### Test Coverage Improvement (Phase 1 完了)
@@ -101,7 +101,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 **残存する未カバー行**:
 - telework.js: Lines 251, 257-279（insertTeleworkLogByMemberの複雑な条件分岐）
-- その他のモジュール: バグ修正または統合テストが必要
+- その他のモジュール: バグ修正または結合テストが必要
 
 **Phase 1の成功要因**:
 - 未カバー行が2つの異なるメソッド（insertTeleworkLog と insertTeleworkLogByMember）に分散していることを特定
@@ -128,7 +128,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
    - 実環境でのみ発生する複雑な相互作用が存在
 
 **Phase 1.5 結論**:
-- telework.js Lines 251, 257-279は**統合テストでの検証を推奨**
+- telework.js Lines 251, 257-279は**結合テストでの検証を推奨**
 - 現在のカバレッジ（96.31%）で十分な品質を確保
 - 関連するエッジケースは部分的にカバー済み
 - **interim version として現状を受け入れ**
@@ -150,32 +150,32 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 #### Documentation & Test Policy
 - **外部コマンド実行に関するテスト方針の明確化**
-  - プロジェクト全体の統一方針として、外部コマンド（child_process.exec等）を使用する処理は統合テストで検証することを明記
+  - プロジェクト全体の統一方針として、外部コマンド（child_process.exec等）を使用する処理は結合テストで検証することを明記
   - 単体テストではモックを使用した最小限のテストのみ実施する方針を確立
 
 - **tests/models/login-auth.test.js** - コメント拡充
-  - 78-108行目: 統合テスト移行推奨コメントを詳細化
+  - 78-108行目: 結合テスト移行推奨コメントを詳細化
   - 「外部コマンド実行を含む処理」であることを明示
-  - 単体テストでの制約、統合テスト環境要件、該当テストケースを明記
+  - 単体テストでの制約、結合テスト環境要件、該当テストケースを明記
   - UNIT_TEST_REPORT.mdへの参照を追加
 
 - **tests/models/user-info.test.js** - ヘッダーコメント改訂
   - 1-70行目: 外部コマンド実行に関する方針を先頭に明記
   - 対象メソッド（_checkOldPassword, _changeToNewPassword）を具体的に記載
   - 既知のバグによる未カバー箇所と外部コマンド実行要因を明確に分離
-  - AWS S3関連処理の統合テスト推奨項目も整理
+  - AWS S3関連処理の結合テスト推奨項目も整理
 
 - **UNIT_TEST_REPORT.md** - 新セクション追加
   - セクション 2.5「外部コマンド実行に関するテスト方針」を新設
-  - 基本方針、対象モジュールと処理、単体テストでの対応方針、統合テスト環境要件を詳細に記載
+  - 基本方針、対象モジュールと処理、単体テストでの対応方針、結合テスト環境要件を詳細に記載
   - models/login-auth.jsとmodels/user-info.jsにおける外部コマンド実行箇所を具体的に特定
   - 今後の対応（短期・中期）とロードマップを明記
 
 - **unit_test_best_practices (memory)** - 新セクション追加
-  - 「外部コマンド実行と統合テスト」セクションを追加
+  - 「外部コマンド実行と結合テスト」セクションを追加
   - 基本方針、対象となる処理、単体テストでの対応方法を記載
-  - 統合テストでの検証項目と環境要件を明記
-  - 統合テストと単体テストの責任分離表を追加
+  - 結合テストでの検証項目と環境要件を明記
+  - 結合テストと単体テストの責任分離表を追加
   - タイムアウト対策とドキュメント参照先を記載
 
 **影響範囲**:
@@ -184,8 +184,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - スキップ中のテスト: user-info.test.js の4テスト
 
 **期待される効果**:
-- テスト方針の明確化により、開発者が単体テストと統合テストの境界を理解しやすくなる
-- 統合テスト環境構築時の要件が明確になる
+- テスト方針の明確化により、開発者が単体テストと結合テストの境界を理解しやすくなる
+- 結合テスト環境構築時の要件が明確になる
 - 外部コマンド実行に関する一貫したアプローチが確立される
 
 ### Added - 2025-11-03
@@ -296,8 +296,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 3. カバレッジ100%達成
 
 ### 優先度: 中
-4. 統合テスト環境の整備
-5. S3関連処理の統合テスト作成
+4. 結合テスト環境の整備
+5. S3関連処理の結合テスト作成
 
 ### 優先度: 低
 6. パスワード暗号化/復号化処理の別モジュール化

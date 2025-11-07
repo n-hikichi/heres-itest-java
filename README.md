@@ -85,7 +85,7 @@ Coverage:    89.96%
 - **該当**: models/geolocation.js:120
 - **詳細**: tests/models/geolocation.test.js:311-317 参照
 
-#### 2. login-auth.test.js - 2テスト失敗（統合テスト移行推奨）
+#### 2. login-auth.test.js - 2テスト失敗（結合テスト移行推奨）
 - **原因**: 外部プロセス（Java EncDec）依存によりタイムアウト
 - **該当**: models/login-auth.js:84-128
 - **詳細**: tests/models/login-auth.test.js:78-88 参照
@@ -104,9 +104,9 @@ Coverage:    89.96%
 - **詳細**: `BUG_REPORT_user-info.md` および `tests/models/user-info.test.js` の冒頭コメント参照
 - **TODO**: バグ修正後、skipテストを実装する必要があります
 
-## Integration Tests（統合テスト）
+## Integration Tests（結合テスト）
 
-以下の機能は統合テスト環境での検証を推奨します：
+以下の機能は結合テスト環境での検証を推奨します：
 
 ### 対象モジュール
 
@@ -118,7 +118,7 @@ Coverage:    89.96%
    - AWS S3連携
    - ファイルアップロード/削除
 
-### 統合テスト環境の要件
+### 結合テスト環境の要件
 
 - Java実行環境（EncDecクラス）
 - PostgreSQL 14.12
@@ -128,14 +128,14 @@ Coverage:    89.96%
 ### 実行方法
 
 ```bash
-# 統合テスト実行（将来的に整備予定）
+# 結合テスト実行（将来的に整備予定）
 make integration-test
 
-# 全テスト実行（単体 + 統合）
+# 全テスト実行（単体 + 結合）
 make test-all
 ```
 
-**注意**: 統合テストは現在整備中です。
+**注意**: 結合テストは現在整備中です。
 
 ## テストカバレッジ
 
@@ -147,7 +147,7 @@ make test-all
 - Lines: 89.93% (786/874)
 
 **目標**:
-- 単体テスト: 95%以上（統合テスト移行項目を除く）
-- 全体（単体+統合）: 95%以上
+- 単体テスト: 95%以上（結合テスト移行項目を除く）
+- 全体（単体+結合）: 95%以上
 
 詳細は `.serena/memories/known_issues.md` を参照してください。

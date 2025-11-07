@@ -276,7 +276,7 @@ fs.unlink.mockImplementation((filepath, callback) => {
    - 全項目100%を目指す
 
 ### 長期
-1. **統合テストの整備**
+1. **結合テストの整備**
    - 実際のS3環境でのテスト
    - Javaプロセス連携のテスト
 
