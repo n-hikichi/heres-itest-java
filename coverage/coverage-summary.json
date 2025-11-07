@@ -1,0 +1,3 @@
+{"total": {"lines":{"total":221,"covered":198,"skipped":0,"pct":89.59},"statements":{"total":221,"covered":198,"skipped":0,"pct":89.59},"functions":{"total":40,"covered":37,"skipped":0,"pct":92.5},"branches":{"total":48,"covered":37,"skipped":0,"pct":77.08},"branchesTrue":{"total":0,"covered":0,"skipped":0,"pct":"Unknown"}}
+,"/home/hikichi/wk/htest-21/heresme-sv/models/user-info.js": {"lines":{"total":221,"covered":198,"skipped":0,"pct":89.59},"functions":{"total":40,"covered":37,"skipped":0,"pct":92.5},"statements":{"total":221,"covered":198,"skipped":0,"pct":89.59},"branches":{"total":48,"covered":37,"skipped":0,"pct":77.08}}
+}

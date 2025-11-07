@@ -1,0 +1,19 @@
+{
+  "appenders": [
+    {
+      "type": "dataFile",
+      "category": "system",
+      "filename": "logs/system.log",
+      "maxLogSize": 20480,
+      "backups": 3,
+      "pattern": "-yyyy-MM-dd"
+    },
+    {
+      "type": "console"
+    }
+  ],
+  "levels": {
+      "system": "ALL"
+  }
+}
+
