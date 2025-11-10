@@ -65,7 +65,7 @@
 ### 1. IT-J005: マルチバイト文字（日本語）
 **ステータス**: ❌ 全4パターン失敗
 **原因**: Javaコードで文字エンコーディング未指定
-**詳細**: [KNOWN_ISSUES.md - 問題1](./KNOWN_ISSUES.md#問題1-日本語マルチバイト文字の文字化け)
+**詳細**: [KNOWN_BUGS.md - 問題1](./KNOWN_BUGS.md#問題1-日本語マルチバイト文字の文字化け)
 
 **失敗パターン**:
 - パスワード
@@ -76,7 +76,7 @@
 ### 2. IT-J007: 不正なコマンド引数（異常系）
 **ステータス**: ⚠️ 一部失敗（1/2テスト失敗）
 **原因**: 不正なコマンドに対してexit code 0を返す
-**詳細**: [KNOWN_ISSUES.md - 問題2](./KNOWN_ISSUES.md#問題2-不正なコマンド引数に対する終了コード)
+**詳細**: [KNOWN_BUGS.md - 問題2](./KNOWN_BUGS.md#問題2-不正なコマンド引数に対する終了コード)
 
 **失敗テスト**:
 - 不正なコマンド（xxx）がエラーにならなかった
@@ -87,17 +87,17 @@
 ### 3. IT-J010-03: 日本語を含むパスワード
 **ステータス**: ❌ 失敗
 **原因**: IT-J005と同じ（文字エンコーディング問題）
-**詳細**: [KNOWN_ISSUES.md - 問題1](./KNOWN_ISSUES.md#問題1-日本語マルチバイト文字の文字化け)
+**詳細**: [KNOWN_BUGS.md - 問題1](./KNOWN_BUGS.md#問題1-日本語マルチバイト文字の文字化け)
 
 ### 4. IT-J010-05: stderrのハンドリング
 **ステータス**: ❌ 失敗
 **原因**: IT-J007と同じ（終了コード問題）
-**詳細**: [KNOWN_ISSUES.md - 問題2](./KNOWN_ISSUES.md#問題2-不正なコマンド引数に対する終了コード)
+**詳細**: [KNOWN_BUGS.md - 問題2](./KNOWN_BUGS.md#問題2-不正なコマンド引数に対する終了コード)
 
 ### 5. IT-J010-10: パフォーマンス測定（100回）
 **ステータス**: ❌ 目標未達成
 **原因**: JVM起動オーバーヘッド
-**詳細**: [KNOWN_ISSUES.md - 問題3](./KNOWN_ISSUES.md#問題3-パフォーマンス目標未達成)
+**詳細**: [KNOWN_BUGS.md - 問題3](./KNOWN_BUGS.md#問題3-パフォーマンス目標未達成)
 
 **測定結果**:
 - 総実行時間: 40,591ms
@@ -187,7 +187,7 @@ tests/integration/java/
 ├── java-encdec.integration.test.js    # IT-J010
 ├── java-performance.test.sh           # IT-J011～J012（未実行）
 ├── run-all-java-tests.sh              # 全テスト実行スクリプト
-├── KNOWN_ISSUES.md                    # 既知の問題まとめ
+├── KNOWN_BUGS.md                    # 不具合まとめ
 └── TEST_EXECUTION_REPORT.md           # このファイル
 ```
 
@@ -195,7 +195,7 @@ tests/integration/java/
 
 ## 🔗 関連ドキュメント
 
-- [既知の問題詳細](./KNOWN_ISSUES.md)
+- [不具合詳細](./KNOWN_BUGS.md)
 - [テスト実行手順](./README.md)
 - [Java結合テスト実施計画書](../../../ref/Java結合テスト実施計画書.md)
 - [IT-023実施ガイド](../../../ref/IT-023_Java_EncDec結合テスト実施ガイド.md)
